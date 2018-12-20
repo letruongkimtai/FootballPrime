@@ -16,7 +16,7 @@ namespace FootballPrime_Website.Models
 
         public string Title { get; set; }
 
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         public string Author { get; set; }
 

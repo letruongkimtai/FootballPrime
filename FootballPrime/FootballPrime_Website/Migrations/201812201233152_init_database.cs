@@ -3,7 +3,7 @@ namespace FootballPrime_Website.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Database_init : DbMigration
+    public partial class init_database : DbMigration
     {
         public override void Up()
         {
@@ -91,7 +91,7 @@ namespace FootballPrime_Website.Migrations
                     {
                         PostID = c.Int(nullable: false, identity: true),
                         Title = c.String(),
-                        Date = c.String(),
+                        Date = c.DateTime(nullable: false),
                         Author = c.String(),
                         Img = c.String(),
                         Content = c.String(),
