@@ -7,13 +7,13 @@ namespace FootballPrime_Website.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Database_init : IMigrationMetadata
+    public sealed partial class init_database : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Database_init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init_database));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812200842369_Database_init"; }
+            get { return "201812201233152_init_database"; }
         }
         
         string IMigrationMetadata.Source

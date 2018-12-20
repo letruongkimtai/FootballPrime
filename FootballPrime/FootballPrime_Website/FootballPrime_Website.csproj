@@ -118,12 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812200842369_Database_init.cs" />
-    <Compile Include="Migrations\201812200842369_Database_init.Designer.cs">
-      <DependentUpon>201812200842369_Database_init.cs</DependentUpon>
+    <Compile Include="Migrations\201812201233152_init_database.cs" />
+    <Compile Include="Migrations\201812201233152_init_database.Designer.cs">
+      <DependentUpon>201812201233152_init_database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -141,6 +142,10 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\_LayoutPost.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SideNews.cshtml" />
+    <Content Include="Views\Home\BreakingNews.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -150,11 +155,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812200842369_Database_init.resx">
-      <DependentUpon>201812200842369_Database_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812201233152_init_database.resx">
+      <DependentUpon>201812201233152_init_database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

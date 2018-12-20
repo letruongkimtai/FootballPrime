@@ -1,0 +1,11 @@
+﻿@model IEnumerable<FootballPrime_Website.Models.Post>
+
+<h2 class="heading">Featured Story</h2>
+@foreach (var item in Model)
+{
+    <img src="~/img/@item.Img" alt="img" />
+    <h1><a href="#">@item.Title</a></h1>
+    <p class="author">@item.Author | <span>@item.Date.ToShortDateString()</span></p>
+    <p>@item.Content.Substring(150)</p>
+    <p><a href="#">Xem thêm &raquo;</a></p>
+}
