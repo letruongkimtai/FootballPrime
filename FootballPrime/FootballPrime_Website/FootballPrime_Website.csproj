@@ -95,11 +95,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\global.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\ad-blank.png" />
+    <Content Include="img\blank.jpg" />
+    <Content Include="img\blank2.png" />
+    <Content Include="img\cartoon.jpg" />
+    <Content Include="img\casey.jpg" />
+    <Content Include="img\cbc.png" />
+    <Content Include="img\headphones.png" />
+    <Content Include="img\hobo.jpg" />
+    <Content Include="img\icons\rss.png" />
+    <Content Include="img\icons\twitter.png" />
+    <Content Include="img\icons\vid.png" />
+    <Content Include="img\microphone.png" />
+    <Content Include="img\rick.jpg" />
+    <Content Include="img\side-ad.png" />
+    <Content Include="img\wayne.jpg" />
+    <Content Include="img\wireframe\logo.png" />
+    <Content Include="img\wireframe\nav-bottom-backgr.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -122,6 +141,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\_LayoutPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -131,7 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812200842369_Database_init.resx">
