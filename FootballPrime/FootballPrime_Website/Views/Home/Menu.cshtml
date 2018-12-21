@@ -2,5 +2,5 @@
 
 @foreach (var item in Model)
 {
-    <li><a href="#">@item.PostTypeName</a></li>
+    <li><a href="@Url.Action("PostWithType","Post",new { id = item.PostTypeID})">@item.PostTypeName</a></li>
 }
