@@ -22,6 +22,8 @@ namespace FootballPrime_Website.Models
 
         public string Img { get; set; }
 
+        public string Quote { get; set; }
+
         public string Content { get; set; }
 
         public int PostTypeID { get; set; }

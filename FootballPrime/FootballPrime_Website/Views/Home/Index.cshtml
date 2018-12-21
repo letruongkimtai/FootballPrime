@@ -25,10 +25,10 @@
                 <h2 class="heading">Điểm tin nóng</h2>
                 @foreach (var item in Model)
                 {
-                    <h2><a href="#">@item.Title</a></h2>
+                    <h2><a href="@Url.Action("Index","Post",new { id = item.PostID})">@item.Title</a></h2>
                     <p class="author">@item.Author | <span>@item.Date.ToShortDateString()</span></p>
-                    <p>@item.Content.Substring(100)</p>
-                    <p><a href="#">Xem thêm &raquo;</a></p>
+                    <p>@item.Content.Substring(0,100)</p>
+                    <p><a href="@Url.Action("Index","Post",new { id = item.PostID})">Xem thêm &raquo;</a></p>
                 }
                 <h2 class="heading">Podcast</h2>
                 <img src="img/microphone.png" alt="" class="righty" />
