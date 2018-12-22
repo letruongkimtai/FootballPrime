@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +14,7 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="~/css/4-col-portfolio.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -34,7 +33,12 @@
                             Trang chủ
                         </a>
                     </li>
-                    @Html.Action("ProductMenu","Product")
+                    <li class="dropdown">
+                        <a class="nav-link" data-toggle="dropdown">Đặt báo</a>
+                        <div class="dropdown-content">
+                            @Html.Action("ProductMenu", "Product")
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","Contact")">Liên hệ</a>
                     </li>
@@ -42,6 +46,9 @@
             </div>
         </div>
     </nav>
+    <div class="cart">
+        @Html.Action("CartPartial","Cart")
+    </div>
 
     <!-- Page Content -->
     <div class="container">

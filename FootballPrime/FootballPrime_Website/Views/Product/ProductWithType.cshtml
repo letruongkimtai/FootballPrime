@@ -21,7 +21,7 @@
                         <p class="price"><strong>@item.Price.ToString("N0") đ</strong></p>
                     </div>
                     <div>
-                        <a class="btn-order" href="">Đặt báo</a>
+                        <a class="btn-order" href="@Url.Action("AddToCart","Cart",new {id = item.PrID,URL=Request.Url.ToString()})">Đặt báo</a>
                     </div>
                 </div>
             </div>
