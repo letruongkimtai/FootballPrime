@@ -1,0 +1,9 @@
+﻿@model IEnumerable<FootballPrime_Website.Models.ProductType>
+
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("ProductWithType","Product",new { id=item.PrTypeID})">@item.PrTypeName</a>
+    </li>
+}
+

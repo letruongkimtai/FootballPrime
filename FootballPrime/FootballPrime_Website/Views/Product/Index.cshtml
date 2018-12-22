@@ -1,0 +1,37 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<FootballPrime_Website.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutProduct.cshtml";
+}
+<h1 class="my-4">
+    Tất cả sản phẩm
+</h1>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div class="card h-100">
+                <a href="#"><img height="144" width="253" class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="title">
+                        <a href="#">@item.PrName</a>
+                    </h4>
+                    <p class="describe">@item.Describe</p>
+                    <div>
+                        <p class="price"><strong>@item.Price.ToString("N0") đ</strong></p>
+                    </div>
+                    <div>
+                        <a class="btn-order" href="">Đặt báo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!-- /.row -->
+<!-- Pagination -->
+<ul class="pagination justify-content-center">
+    @Html.PagedListPager(Model, pageNumber => Url.Action("Index", new { page = pageNumber }))
+</ul>
+<!-- /.container -->
