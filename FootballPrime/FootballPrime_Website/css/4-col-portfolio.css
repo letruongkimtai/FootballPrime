@@ -1,0 +1,43 @@
+/*!
+ * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+ */
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.price
+{
+   padding:5px 40px 5px 0px
+}
+
+.describe {
+    padding: 5px 0px 5px 0px
+}
+
+.title {
+    padding: 5px 0px 10px 0px;
+}
+
+.btn-order {
+    padding: 10px 15px 10px 15px;
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: #007bff;
+    color: white
+}
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
