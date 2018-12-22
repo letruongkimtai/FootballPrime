@@ -107,6 +107,7 @@
     <Content Include="css\blog-post.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\global.css" />
+    <Content Include="css\portfolio-item.css" />
     <Content Include="Global.asax" />
     <Content Include="img\ad-blank.png" />
     <Content Include="img\blank.jpg" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -172,6 +174,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\ProductMenu.cshtml" />
     <Content Include="Views\Product\ProductWithType.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
