@@ -68,6 +68,7 @@ namespace FootballPrime_Website.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(FormCollection collection, Customer customer)
         {
@@ -81,9 +82,11 @@ namespace FootballPrime_Website.Controllers
                 return RedirectToAction("Index", "Home");
             } else
             {
-                ViewData["msg"] = "User name or password isn't correct";
+                ViewData["msg"] = "The user name or password isn't correct";
             }
             return View();
         }
+        [HttpPost]
+
     }
 }

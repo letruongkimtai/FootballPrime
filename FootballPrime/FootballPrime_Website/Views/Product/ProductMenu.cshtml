@@ -1,0 +1,6 @@
+﻿@model IEnumerable<FootballPrime_Website.Models.ProductType>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("ProductWithType","Product",new { id=item.PrTypeID})">@item.PrTypeName</a>
+}

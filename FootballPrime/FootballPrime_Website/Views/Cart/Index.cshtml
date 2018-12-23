@@ -1,0 +1,57 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/css/portfolio-item.css" rel="stylesheet" />
+
+@using FootballPrime_Website.Models;
+@model List<Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutProduct.cshtml";
+}
+
+<h1 class="my-4">
+    Giỏ hàng
+</h1>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Tên sản phẩm </th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng cộng</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TempName</td>
+                        <td>@item.TempPrice.ToString("N0")</td>
+                        @using (Html.BeginForm("UpdateCart", "Cart", new { itemId = item.TempID }))
+                        {
+                            <td><input type='text' name="Quantity" value='@item.TempAmount' class="qty" /></td>
+                            <td>@item.TempTotal.ToString("N0")</td>
+                            <td>@Html.ActionLink("X", "DeleteItem", new { itemId = item.TempID })</td>
+                            <td>
+                                <button type="submit" style="background:white;border:none">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        }
+                    </tr>
+                }
+
+                <tr>
+                    <td colspan="2"><a href="@Url.Action("Index","Product")">Tiếp tục đặt báo</a></td>
+                    <td></td>
+                    <td></td>
+                    <td>@Html.ActionLink("Hủy đơn hàng", "DeleteCart")</td>
+                    <td>Tạm tính: @ViewBag.CartTotal.ToString("N0") đ</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
