@@ -78,7 +78,7 @@ namespace FootballPrime_Website.Controllers
             if (customer != null)
             {
                 ViewData["msg"] = "Login was successful";
-                //Session["account"] = customer;
+                Session["Account"] = customer;
                 return RedirectToAction("Index", "Home");
             } else
             {
@@ -86,5 +86,7 @@ namespace FootballPrime_Website.Controllers
             }
             return View();
         }
+        [HttpPost]
+
     }
 }
