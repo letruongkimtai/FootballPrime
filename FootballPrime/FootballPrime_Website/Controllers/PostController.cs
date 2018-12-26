@@ -34,5 +34,18 @@ namespace FootballPrime_Website.Controllers
                        select s;
             return View(item);
         }
+
+        public ActionResult Search()
+        {
+            return PartialView();
+        }
+
+        public ActionResult SearchResult(FormCollection formCollection)
+        {
+            string value = formCollection["Search"];
+            var result = db.Posts.Where(x => x.Title.Contains(value)).ToList();
+
+            return View(result);
+        }
     }
 }

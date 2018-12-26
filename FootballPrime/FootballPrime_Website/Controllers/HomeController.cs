@@ -35,5 +35,12 @@ namespace FootballPrime_Website.Controllers
 
             return PartialView(db.PostTypes);
         }
+
+        public ActionResult MorePost()
+        {
+            int id = 5;
+            var news = db.Posts.Where(n => n.PostTypeID == id);
+            return PartialView(news.Take(5));
+        }
     }
 }
