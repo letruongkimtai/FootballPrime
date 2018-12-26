@@ -3,7 +3,7 @@
 <h2 class="heading">Featured Story</h2>
 @foreach (var item in Model)
 {
-    <img src="~/img/@item.Img" alt="img" />
+    <img src="~/img/@item.Img" alt="img" width="400" height="220"/>
     <h1><a href="@Url.Action("Index","Post",new { id = item.PostID})">@item.Title</a></h1>
     <p class="author">@item.Author | <span>@item.Date.ToShortDateString()</span></p>
     <p>@item.Content.Substring(0,150)</p>

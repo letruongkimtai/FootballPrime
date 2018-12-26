@@ -1527,14 +1527,18 @@
     <Content Include="img\cartoon.jpg" />
     <Content Include="img\casey.jpg" />
     <Content Include="img\cbc.png" />
+    <Content Include="img\fb.png" />
     <Content Include="img\headphones.png" />
     <Content Include="img\hobo.jpg" />
+    <Content Include="img\humor.jpg" />
     <Content Include="img\icons\rss.png" />
     <Content Include="img\icons\twitter.png" />
     <Content Include="img\icons\vid.png" />
+    <Content Include="img\Logo.png.png" />
     <Content Include="img\microphone.png" />
     <Content Include="img\rick.jpg" />
     <Content Include="img\side-ad.png" />
+    <Content Include="img\tonight.jpg" />
     <Content Include="img\wayne.jpg" />
     <Content Include="img\wireframe\logo.png" />
     <Content Include="img\wireframe\nav-bottom-backgr.png" />
@@ -1664,6 +1668,9 @@
     <Content Include="Views\Customer\Login.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Confirm.cshtml" />
+    <Content Include="Views\Home\MorePost.cshtml" />
+    <Content Include="Views\Post\Search.cshtml" />
+    <Content Include="Views\Post\SearchResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

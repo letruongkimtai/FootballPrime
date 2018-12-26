@@ -1,13 +1,11 @@
-﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<FootballPrime_Website.Models.Post>
+﻿@model IEnumerable<FootballPrime_Website.Models.Post>
 <link href="~/css/blog-home.css" rel="stylesheet" />
 <link href="~/css/bootstrap.min.css" rel="stylesheet" />
 @{
-    ViewBag.Title = "ShowAllPost";
+    ViewBag.Title = "SearchResult";
     Layout = "~/Views/_LayoutPost.cshtml";
 }
 
-<!-- Page Content -->
 <div class="container">
 
     <div class="row">
@@ -18,36 +16,32 @@
             {
                 <!-- Blog Post -->
                 <div class="card mb-4">
-                    <img class="card-img-top" src="~/img/@item.Img" alt="Card image cap">
+                    <img class="card-img-top" src="~/img/@item.Img" alt="Card image cap" width="728" height="291">
                     <div class="card-body">
                         <h2 class="card-title">@item.Title</h2>
-                        <p class="card-text">@item.Content.Substring(0,150)</p>
+                        <p class="card-text">@item.Content.Substring(0, 150)</p>
                         <a href="@Url.Action("Index","Post",new { id= item.PostID})" class="btn btn-primary">Xem thêm &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
-                        Posted on @item.Date.ToShortDateString() by
+                        Đã đăng vào @item.Date.ToShortDateString() bởi
                         <a href="#">@item.Author</a>
                     </div>
                 </div>
             }
             <!-- Pagination -->
-            <div class="pagination justify-content-center mb-4">
-                @Html.PagedListPager(Model, pageNumber => Url.Action("ShowAllPost", new { page = pageNumber }))
-            </div>
-
         </div>
 
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4" style="margin-top:-20px;">
+
             <!-- Search Widget -->
             <div class="card my-4">
                 <h5 class="card-header">Tìm kiếm</h5>
                 <div class="card-body">
-                    @Html.Action("Search","Post")
+                    @Html.Action("Search", "Post")
                 </div>
             </div>
         </div>
     </div>
     <!-- /.row -->
 </div>
-
