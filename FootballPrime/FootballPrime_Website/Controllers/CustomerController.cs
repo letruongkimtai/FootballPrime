@@ -78,6 +78,7 @@ namespace FootballPrime_Website.Controllers
             {
                 ViewData["msg"] = "Đăng nhập thành công";
                 Session["Account"] = customer.UserName;
+                Session["CustomerObject"] = customer;
                 return RedirectToAction("Index", "Product");
             }
             else

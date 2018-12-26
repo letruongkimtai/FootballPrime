@@ -131,5 +131,61 @@ namespace FootballPrime_Website.Controllers
         {
             return View();
         }
+
+        /*Payment Section*/
+
+        [HttpGet]
+        public ActionResult Payment()
+        {
+            if (Session["Account"] == null || Session["Account"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Customer");
+            }
+            List<Cart> orders = GetList();
+            ViewBag.CartTotal = CartTotal();
+            ViewBag.Shipping = Shipping();
+            ViewBag.OrderTotal = OrderTotal();
+
+            return View(orders);
+        }
+        [HttpPost]
+        public ActionResult Payment(FormCollection collection)
+        {
+            if (Session["Account"] == null || Session["Account"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Customer");
+            }
+
+            Order bill = new Order();
+            Customer customer = (Customer)Session["CustomerObject"];
+            List<Cart> orders = GetList();
+
+            bill.CtmID = customer.CtmID;
+            bill.Odate = DateTime.Now;
+            bill.DeliveryStatus = false;
+            bill.PaymentCheck = false;
+            db.Orders.Add(bill);
+            db.SaveChanges();
+
+            foreach (var item in orders)
+            {
+                int id = item.TempID;
+                Product product = db.Products.SingleOrDefault(n => n.PrID == id);
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.OrderID = bill.OrderID;
+                orderDetail.PrID = item.TempID;
+                orderDetail.Quantity = item.TempAmount;
+                orderDetail.Total = (decimal)item.TempTotal;
+                db.OrderDetails.Add(orderDetail);
+            }
+            db.SaveChanges();
+            Session["Cart"] = null;
+            return RedirectToAction("Confirm", "Cart");
+        }
+
+        public ActionResult Confirm()
+        {
+            return View();
+        }
     }
 }

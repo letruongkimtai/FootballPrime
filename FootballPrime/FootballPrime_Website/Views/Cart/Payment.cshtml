@@ -1,0 +1,130 @@
+﻿@using FootballPrime_Website.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/_LayoutProduct.cshtml";
+}
+
+<h1 class="my-4">
+    Thanh toán
+</h1>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Tên sản phẩm </th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Tổng cộng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TempName</td>
+                        <td>@item.TempPrice.ToString("N0")</td>
+                        <td>@item.TempAmount</td>
+                        <td>@item.TempTotal.ToString("N0")</td>
+                    </tr>
+                }
+
+                <tr>
+                    <td colspan="2"><a href="@Url.Action("Index","Cart")">Quay lại giỏ hàng</a></td>
+                    <td colspan="2">
+                        <span style="float:right;">
+                            <strong>Tạm tính:</strong> @ViewBag.CartTotal.ToString("N0") đ
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-4" style="margin-top:-23px;">
+
+        @{
+            Customer ctm = (Customer)Session["CustomerObject"];
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="card my-4">
+                <h5 class="card-header">Thông tin khách hàng</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <strong>Họ tên: </strong>
+                                </li>
+                                <li>
+                                    <strong>Địa chỉ: </strong>
+                                </li>
+                                <li>
+                                    <strong>Số điện thoại:</strong>
+                                </li>
+                                <li>
+                                    <strong>Email:</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+
+                                <li>
+                                    <span>@ctm.CtmName</span>
+                                </li>
+                                <li>
+                                    <span>@ctm.Address</span>
+                                </li>
+                                <li>
+                                    <span>@ctm.Tel</span>
+                                </li>
+                                <li>
+                                    <span>@ctm.Email</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Categories Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Tổng hóa đơn</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <strong>Tạm tính: </strong>
+                                </li>
+                                <li>
+                                    <strong>Phí vận chuyển:</strong>
+                                </li>
+                                <li>
+                                    <strong>Thành tiền:</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <span>@ViewBag.CartTotal.ToString("N0") đ</span>
+                                </li>
+                                <li>
+                                    <span>@ViewBag.Shipping.ToString("N0") đ</span>
+                                </li>
+                                <li>
+                                    <span>@ViewBag.OrderTotal.ToString("N0") đ</span>
+                                </li>
+                            </ul>
+                            <button style="margin-top:20px;" type="submit" class="btn btn-primary">Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
