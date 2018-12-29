@@ -1,0 +1,75 @@
+﻿@model FootballPrime_Website.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>CHI TIẾT BÀI VIẾT</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Loại bài viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostType.PostTypeName)
+        </dd>
+
+        <dt>
+            Tiêu đề:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Ngày viết:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            Tên tác giả:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <img src="~/img/@Model.Img"/>
+        </dd>
+
+        <dt>
+            Trích dẫn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quote)
+        </dd>
+
+        <dt>
+            Nội dung:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.PostID }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

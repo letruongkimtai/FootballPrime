@@ -1,0 +1,70 @@
+﻿@model FootballPrime_Website.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>SỬA SẢN PHẨM</h2>
+
+@using (Html.BeginForm("Edit","ProductAd",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PrID)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tên báo: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Loại báo:  </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrTypeID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrTypeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Mô tả:  </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Describe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Describe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Giá bán:  </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Up hình ảnh:  </label>
+            <div class="col-md-10">
+                Chọn ảnh mới
+                <input type="file" class="form-control btn btn-primary" name="f" />
+                <img src="~/img/@Model.Pic" />(Ảnh hiện tại)
+                @ViewBag.Thongbao
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Quay trở lại", "Index")
+</div>

@@ -12,7 +12,7 @@ namespace FootballPrime_Website.Models
     {
         [Key]
         public int AdmID { get; set; }
-        public int AdmName { get; set; }
-        public int AdmPwd { get; set; }
+        public string AdmName { get; set; }
+        public string AdmPwd { get; set; }
     }
 }
