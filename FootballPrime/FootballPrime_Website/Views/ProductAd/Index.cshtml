@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FootballPrime_Website.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ BÁO</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">Tên báo</th>
+        <th style="width:200px">Loại báo</th>
+        <th style="width:150px">Hình ảnh</th>
+        <th style="width:300px">Mô tả</th>
+        <th style="width:100px">Giá bán</th>
+        <th style="width:200px"> </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PrName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductType.PrTypeName)
+        </td>
+        <td>
+            <img src="~/img/@item.Pic" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Describe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id = item.PrID }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.PrID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.PrID })
+        </td>
+    </tr>
+}
+
+</table>

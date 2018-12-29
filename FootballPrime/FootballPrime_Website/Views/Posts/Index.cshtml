@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FootballPrime_Website.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ BÀI VIẾT</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:150px">Loại bài viết</th>
+        <th style="width:200px">Tiêu đề</th>
+        <th style="width:100px">Ngày viết</th>
+        <th style="width:100px">Tác giả</th>
+        <th style="width:200px">Hình ảnh</th>
+        <th style="width:150px">Trích dẫn</th>
+        <th style="width:200px">Nội dung</th>
+        <th style="width:200px"> </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostType.PostTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            <img src="~/img/@item.Img" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.PostID }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id=item.PostID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.PostID })
+        </td>
+    </tr>
+}
+
+</table>

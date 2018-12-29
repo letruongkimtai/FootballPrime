@@ -1,0 +1,56 @@
+﻿@model FootballPrime_Website.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+<h3>Bạn có chắc muốn xóa?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Loại báo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.PrTypeName)
+        </dd>
+        <dt>
+            Tên báo:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrName)
+        </dd>
+        <dt>
+            Mô tả:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Describe)
+        </dd>
+        <dt>
+            Giá bán:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            Hình ảnh:
+        </dt>
+        <dd>
+            <img src="~/img/@Model.Pic" />
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
