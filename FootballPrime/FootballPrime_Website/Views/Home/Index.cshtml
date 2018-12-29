@@ -9,17 +9,9 @@
     <div id="main">
         <div id="headlines">
             <div id="main-headline">
-                @Html.Action("BreakingNews","Home")
-                <h2 class="heading">Latest Video</h2>
-                <object width="400" height="300">
-                    <param name="movie" value="http://www.youtube.com/v/B0jhJA1Hjxk&amp;hl=en_US&amp;fs=1&" />
-                    <param name="allowFullScreen" value="true" />
-                    <param name="allowscriptaccess" value="never" />
-                    <embed src="http://www.youtube.com/v/B0jhJA1Hjxk&amp;hl=en_US&fs=1&amp;" type="application/x-shockwave-flash" allowscriptaccess="never" allowfullscreen="true" width="400" height="300" /></embed>
-                </object>
-                <h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h2>
-                <p class="author"><span>09.18.09</span></p>
-                <p><a href="#">More video &raquo;</a></p>
+                @Html.Action("BreakingNews", "Home")
+                <h2 class="heading">Video hot</h2>
+                <iframe width="400" height="315" src="https://www.youtube.com/embed/OOukuKq13F4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div id="more-headlines">
                 <h2 class="heading">Điểm tin nóng</h2>
@@ -27,15 +19,9 @@
                 {
                     <h2><a href="@Url.Action("Index","Post",new { id = item.PostID})">@item.Title</a></h2>
                     <p class="author">@item.Author | <span>@item.Date.ToShortDateString()</span></p>
-                    <p>@item.Content.Substring(0,100)</p>
+                    <p>@item.Content.Substring(0, 100)</p>
                     <p><a href="@Url.Action("Index","Post",new { id = item.PostID})">Xem thêm &raquo;</a></p>
                 }
-                <h2 class="heading">Podcast</h2>
-                <img src="img/microphone.png" alt="" class="righty" />
-                <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-                <p class="author"><span>09.18.09</span></p>
-                <p>Ut sed arcu nulla. In eget lectus vitae purus volutpat consectetur suscipit ut justo.</p>
-                <p><a href="#">More podcasts &raquo;</a></p>
             </div>
         </div>
     </div>
@@ -45,7 +31,7 @@
         <!-- BEGIN ADS -->
         <a href="#"><img src="~/img/side-ad.png" alt="" class="ad" /></a> <a href="#"><img src="~/img/side-ad.png" alt="" class="ad-right" /></a> <a href="#"><img src="~/img/side-ad.png" alt="" class="ad" /></a> <a href="#"><img src="~/img/side-ad.png" alt="" class="ad-right" /></a>
         <!-- END ADS -->
-        @Html.Action("SideNews","Home")
+        @Html.Action("SideNews", "Home")
     </div>
     <!-- END SIDEBARS -->
 </div>

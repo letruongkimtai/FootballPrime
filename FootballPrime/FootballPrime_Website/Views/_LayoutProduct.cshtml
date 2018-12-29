@@ -27,27 +27,70 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Product")">
-                            Trang chủ
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link" data-toggle="dropdown">Đặt báo</a>
-                        <div class="dropdown-content">
-                            @Html.Action("ProductMenu", "Product")
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Contact")">Liên hệ</a>
-                    </li>
-                </ul>
+                @if (Session["Account"] == null)
+                {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Product")">
+                                Trang chủ
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav-link" data-toggle="dropdown">Đặt báo</a>
+                            <div class="dropdown-content">
+                                @Html.Action("ProductMenu", "Product")
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Contact")">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Login","Customer")">
+                                Đăng nhập
+                            </a>
+                        </li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Product")">
+                                Trang chủ
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav-link" data-toggle="dropdown">Đặt báo</a>
+                            <div class="dropdown-content">
+                                @Html.Action("ProductMenu", "Product")
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","Contact")">Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">|</a>
+                        </li>
+
+                    </ul>
+                    <div style="float:right;">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index","Product")" style="font-weight:bold;color:white">Chào! @Session["Account"].ToString()</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Logout","Customer")">
+                                    Đăng Xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                }
             </div>
         </div>
     </nav>
     <div class="cart">
-        @Html.Action("CartPartial","Cart")
+        @Html.Action("CartPartial", "Cart")
     </div>
 
     <!-- Page Content -->

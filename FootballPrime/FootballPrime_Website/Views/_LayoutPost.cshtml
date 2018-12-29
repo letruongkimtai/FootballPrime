@@ -11,7 +11,9 @@
     <!-- END TOP -->
     <!-- BEGIN HEADER -->
     <div id="header">
-        <div id="logo"> <a href="@Url.Action("Index","Home")"><img src="~/img/wireframe/logo.png" alt="" /></a> </div>
+        <div id="logo">
+            <a href="@Url.Action("Index","Home")"><img src="~/img/Logo.png.png"  height="110" width="380"/></a>
+        </div>
         <div id="ad"> <img src="~/img/ad-blank.png" alt="" /> </div>
     </div>
     <!-- END HEADER -->
@@ -28,8 +30,7 @@
     <!-- BEGIN SUB NAV -->
     <div id="sub-nav">
         <ul>
-            <li>|</li>
-            <li><img src="~/img/icons/rss.png" alt="" /><a href="#">Facebook</a></li>
+            <li><img src="~/img/fb.png" alt="" width="24" height="26"/><a href="#">Facebook</a></li>
             <li>|</li>
             <li><img src="~/img/icons/twitter.png" alt="" /><a href="#">Twitter</a></li>
         </ul>
@@ -43,40 +44,25 @@
     <!-- BEGIN EXTRAS -->
     <div id="extras">
         <div id="recommended">
-            <h2 class="heading">Recommended Stories</h2>
+            <h2 class="heading">Tin trong nước</h2>
             <ul>
-                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit &raquo;</a></li>
-                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit &raquo;</a></li>
-                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit &raquo;</a></li>
-                <li class="last"><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit &raquo;</a></li>
+                @Html.Action("MorePost","Home")
             </ul>
         </div>
         <div id="programs">
-            <h2 class="heading">What's On Tonight</h2>
-            <img src="~/img/rick.jpg" alt="" /> <img src="~/img/cbc.png" alt="" />
+            <h2 class="heading">Tối nay có gì</h2>
+            <img src="~/img/tonight.jpg" alt=""width="312" height="120" /> <img src="~/img/cbc.png" alt="" />
         </div>
         <div id="cartoon">
-            <h2 class="heading">Humour</h2>
-            <img src="~/img/cartoon.jpg" alt="" />
+            <h2 class="heading">Ảnh vui</h2>
+            <img src="~/img/humor.jpg" alt="" width="312" height="200"/>
         </div>
     </div>
     <!-- END EXTRAS -->
     <!-- BEGIN FOOTER -->
     <div id="footer">
         <ul>
-            <li>&copy;2010 <a href="#">Name Here</a></li>
-            <li>|</li>
-            <li><a href="#">FAQ</a></li>
-            <li>|</li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li>|</li>
-            <li><a href="#">Careers</a></li>
-            <li>|</li>
-            <li><a href="#">Advertise</a></li>
-            <li>|</li>
-            <li><a href="#">Sitemap</a></li>
-            <li>|</li>
-            <li>Designed by <a href="http://www.skyrocketlabs.com/">Skyrocket Labs</a></li>
+            <li>&copy;2018 <a href="#">Football Prime</a></li>
         </ul>
     </div>
     <!-- END FOOTER -->
